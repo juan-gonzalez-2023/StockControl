@@ -4,6 +4,11 @@
   padding: 2rem 1.5rem 3rem;
 }
 
+:host {
+  display: block;
+  width: 100%;
+}
+
 .products__title {
   margin: 0 0 1.5rem;
   font-size: 1.75rem;
