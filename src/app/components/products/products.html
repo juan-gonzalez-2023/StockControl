@@ -10,6 +10,16 @@
           <button
             mat-icon-button
             type="button"
+            class="product-card__delete"
+            aria-label="Eliminar producto"
+            (click)="deleteProduct(product)"
+          >
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+
+          <button
+            mat-icon-button
+            type="button"
             class="product-card__edit"
             aria-label="Editar producto"
             (click)="openEditModal(product)"
