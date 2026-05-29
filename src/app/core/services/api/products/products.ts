@@ -16,6 +16,7 @@ export interface Product {
 }
 
 export type CreateProduct = Pick<Product, 'title' | 'price' | 'description' | 'category' | 'image'>;
+export type UpdateProduct = Product;
 
 @Injectable({
   providedIn: 'root',
@@ -30,5 +31,9 @@ export class Products {
 
   postProduct(product: CreateProduct): Observable<Product> {
     return this.http.post<Product>(this.apiUrl, product);
+  }
+
+  putProduct(id: number, product: UpdateProduct): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, product);
   }
 }
