@@ -4,3 +4,7 @@
     <router-outlet />
   </main>
 </div>
+
+@if (modalService.isCreateOpen()) {
+  <app-modal-create (closed)="modalService.closeCreate()" />
+}
