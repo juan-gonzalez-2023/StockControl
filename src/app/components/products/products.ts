@@ -19,6 +19,7 @@ export class Products implements OnInit {
 
   ngOnInit(): void {
     this.productsList.getProductsList().subscribe({
+      next: (products) => {this.products.set(products); console.log(this.products())},
       error: (error) => console.error(error),
     });
   }
