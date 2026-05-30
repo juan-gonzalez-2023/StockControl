@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,7 +13,7 @@ import { Auth } from '../../core/services/api/auth/auth';
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
-export class Login implements OnInit {
+export class Login {
   private fb = inject(FormBuilder);
   private auth = inject(Auth);
   private router = inject(Router);
@@ -25,12 +25,6 @@ export class Login implements OnInit {
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
-
-  ngOnInit(): void {
-    if (this.auth.isAuthenticated()) {
-      void this.router.navigate(['/home']);
-    }
-  }
 
   onSubmit(): void {
     if (this.form.invalid) {
