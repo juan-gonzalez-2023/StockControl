@@ -5,6 +5,21 @@
     alt="StockControl"
   />
   <div class="navbar__menu">
+    <div class="navbar__menu-item navbar__search">
+      <label class="navbar__search-label" for="product-search">Buscar productos</label>
+      <div class="navbar__search-box">
+        <span class="material-symbols-outlined navbar__search-icon" aria-hidden="true">search</span>
+        <input
+          id="product-search"
+          type="search"
+          class="navbar__search-input"
+          placeholder="Buscar…"
+          autocomplete="off"
+          [value]="productsList.searchQuery()"
+          (input)="onSearch($event)"
+        />
+      </div>
+    </div>
     <div class="navbar__menu-item">
       <button
         type="button"

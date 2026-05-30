@@ -4,9 +4,11 @@
   <div class="products__grid">
     @if (products().length === 0) {
       <p class="products__empty">Cargando productos…</p>
+    } @else if (filteredProducts().length === 0) {
+      <p class="products__empty">No hay productos que coincidan con tu búsqueda.</p>
     }
 
-    @for (product of products(); track product.id) {
+    @for (product of filteredProducts(); track product.id) {
       <mat-card class="product-card" appearance="outlined">
         <div class="product-card__media">
           <img [src]="product.image" [alt]="product.title" loading="lazy" />
