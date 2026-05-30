@@ -18,12 +18,61 @@
   overflow-y: auto;
 }
 
+.navbar__close {
+  display: none;
+}
+
 .navbar__logo {
   width: 100%;
   max-width: 180px;
   height: auto;
   object-fit: contain;
   border-radius: 100%;
+}
+
+@media (max-width: 768px) {
+  :host {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+  }
+
+  .navbar {
+    padding-top: 1rem;
+  }
+
+  .navbar__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+
+    .material-symbols-outlined {
+      font-size: 1.25rem;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+  }
+
+  .navbar__logo {
+    max-width: 140px;
+  }
+
+  .navbar__menu {
+    margin-top: 1.25rem;
+  }
 }
 
 .navbar__menu {
