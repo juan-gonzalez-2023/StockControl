@@ -8,3 +8,7 @@
 @if (modalService.isCreateOpen()) {
   <app-modal-create (closed)="modalService.closeCreate()" />
 }
+
+@if (modalService.isEditOpen() && modalService.productToEdit(); as product) {
+  <app-modal-edit [product]="product" (closed)="modalService.closeEdit()" />
+}
