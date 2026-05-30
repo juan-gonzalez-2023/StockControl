@@ -6,7 +6,12 @@
   />
   <div class="navbar__menu">
     <div class="navbar__menu-item">
-      <button type="button" class="navbar__menu-btn" aria-label="Crear producto">
+      <button
+        type="button"
+        class="navbar__menu-btn"
+        aria-label="Crear producto"
+        (click)="openCreateModal()"
+      >
         <span class="navbar__menu-btn-text">Crear producto</span>
         <span class="material-symbols-outlined navbar__menu-btn-icon">add</span>
       </button>
