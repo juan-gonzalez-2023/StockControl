@@ -1,0 +1,9 @@
+<div class="products">
+  <h1>Productos</h1>
+  @for (product of products(); track product.id) {
+    <div>
+      <h2>{{ product.title}}</h2>
+      <img src="{{ product.image }}" alt="{{ product.title }}">
+    </div>
+  }
+</div>
