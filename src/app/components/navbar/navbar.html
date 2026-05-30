@@ -1,4 +1,12 @@
 <div class="navbar">
+  <button
+    type="button"
+    class="navbar__close"
+    aria-label="Cerrar menú"
+    (click)="closeSidebar.emit()"
+  >
+    <span class="material-symbols-outlined" aria-hidden="true">close</span>
+  </button>
   <img
     class="navbar__logo"
     src="assets/images/logo.PNG"

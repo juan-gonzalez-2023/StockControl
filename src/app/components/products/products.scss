@@ -22,6 +22,21 @@
   gap: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .products {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .products__title {
+    display: none;
+  }
+
+  .products__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 .products__empty {
   grid-column: 1 / -1;
   margin: 0;

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from '../../core/services/api/auth/auth';
 import { ModalService } from '../../core/services/modal/modal.service';
@@ -12,6 +12,8 @@ import { ProductsList } from '../../core/services/productsList/products-list';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  readonly closeSidebar = output<void>();
+
   private readonly auth = inject(Auth);
   private readonly router = inject(Router);
   readonly modalService = inject(ModalService);
@@ -24,11 +26,13 @@ export class Navbar {
 
   openCreateModal(): void {
     this.modalService.openCreate();
+    this.closeSidebar.emit();
   }
 
   logout(): void {
     this.productsList.setSearchQuery('');
     this.auth.logout();
+    this.closeSidebar.emit();
     void this.router.navigate(['/']);
   }
 }

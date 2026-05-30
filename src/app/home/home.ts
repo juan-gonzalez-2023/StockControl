@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Products } from '../components/products/products';
 import { Navbar } from '../components/navbar/navbar';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -8,4 +9,14 @@ import { Navbar } from '../components/navbar/navbar';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {}
+export class Home {
+  readonly sidebarOpen = signal(false);
+
+  toggleSidebar(): void {
+    this.sidebarOpen.update((open) => !open);
+  }
+
+  closeSidebar(): void {
+    this.sidebarOpen.set(false);
+  }
+}
