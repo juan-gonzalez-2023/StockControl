@@ -41,9 +41,16 @@ app.use(
 app.use((req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then((response): void => {
+      if (response) {
+        writeResponseToNodeResponse(response, res);
+        return;
+      }
+
+      res.sendFile(join(browserDistFolder, 'index.html'), (err) => {
+        if (err) next(err);
+      });
+    })
     .catch(next);
 });
 

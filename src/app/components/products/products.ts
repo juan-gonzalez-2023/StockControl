@@ -1,5 +1,5 @@
-import { CurrencyPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Product } from '../../core/services/api/products/products';
@@ -19,11 +19,18 @@ export class Products implements OnInit {
   private productsList = inject(ProductsList);
   private modalService = inject(ModalService);
   private deleteService = inject(Delete);
+  private cdr = inject(ChangeDetectorRef);
+  private platformId = inject(PLATFORM_ID);
 
   readonly products = this.productsList.products;
 
   ngOnInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.productsList.getProductsList().subscribe({
+      next: () => this.cdr.markForCheck(),
       error: (error) => console.error(error),
     });
   }

@@ -60,6 +60,17 @@
   line-height: 1.4;
 }
 
+.login__error {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
 .login__form {
   display: flex;
   flex-direction: column;

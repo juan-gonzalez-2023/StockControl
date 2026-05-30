@@ -22,6 +22,15 @@
   gap: 1.5rem;
 }
 
+.products__empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9375rem;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;

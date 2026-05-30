@@ -1,6 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Navbar } from './components/navbar/navbar';
 import { ModalCreate } from './components/modal-create/modal-create';
 import { ModalEdit } from './components/modal-edit/modal-edit';
 import { ModalService } from './core/services/modal/modal.service';
@@ -8,7 +7,7 @@ import { ModalService } from './core/services/modal/modal.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Navbar, ModalCreate, ModalEdit],
+  imports: [RouterOutlet, ModalCreate, ModalEdit],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
