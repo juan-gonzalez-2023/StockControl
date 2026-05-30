@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99, 102, 241, 0.18), transparent),
+    linear-gradient(160deg, #0f0347 0%, #1a0a5c 45%, #2d1b7a 100%);
+}
+
+.login__card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.25rem 2rem 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 4px 6px rgba(17, 3, 86, 0.06),
+    0 24px 48px rgba(17, 3, 86, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.login__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.login__logo {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(17, 3, 86, 0.15);
+}
+
+.login__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #110356;
+}
+
+.login__subtitle {
+  margin: 0.375rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.login__error {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.login__field {
+  width: 100%;
+}
+
+.login__submit {
+  width: 100%;
+  height: 48px;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 12px !important;
+}
+
+.login__footer {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.login__link {
+  font-size: 0.8125rem;
+  color: #4f46e5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #110356;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}

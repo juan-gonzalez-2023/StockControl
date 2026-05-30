@@ -1,0 +1,70 @@
+<div class="products">
+  <h1 class="products__title">Productos</h1>
+
+  <div class="products__grid">
+    @if (products().length === 0) {
+      <p class="products__empty">Cargando productos…</p>
+    } @else if (filteredProducts().length === 0) {
+      <p class="products__empty">No hay productos que coincidan con tu búsqueda.</p>
+    }
+
+    @for (product of filteredProducts(); track product.id) {
+      <mat-card class="product-card" appearance="outlined">
+        <div class="product-card__media">
+          <img [src]="product.image" [alt]="product.title" loading="lazy" />
+
+          <button
+            mat-icon-button
+            type="button"
+            class="product-card__delete"
+            aria-label="Eliminar producto"
+            (click)="deleteProduct(product)"
+          >
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+
+          <button
+            mat-icon-button
+            type="button"
+            class="product-card__edit"
+            aria-label="Editar producto"
+            (click)="openEditModal(product)"
+          >
+          <span class="material-symbols-outlined">
+            edit
+            </span>
+          </button>
+
+          <span class="product-card__badge">{{ product.price | currency }}</span>
+        </div>
+
+        <mat-card-content class="product-card__body">
+          <mat-card-header class="product-card__header">
+            <div mat-card-avatar class="product-card__avatar">
+              <img [src]="product.image" [alt]="product.category" />
+            </div>
+            <mat-card-title class="product-card__category">{{ product.category }}</mat-card-title>
+            <mat-card-subtitle class="product-card__id">SKU #{{ product.id }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <p class="product-card__title">{{ product.title }}</p>
+        </mat-card-content>
+
+        <mat-card-actions align="start" class="product-card__footer">
+          <span class="product-card__stat">
+            
+            {{ product.rating?.rate ?? '—' }}
+          </span>
+
+          <span class="product-card__stat">
+            {{ product.rating?.count ?? 0 }}
+          </span>
+
+          <span class="material-symbols-outlined">
+            inventory
+            </span>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+</div>
