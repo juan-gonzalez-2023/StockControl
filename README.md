@@ -2,6 +2,10 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
 
+## Demo en producción
+
+Aplicación desplegada en Vercel: [https://stock-control-wsms.vercel.app/](https://stock-control-wsms.vercel.app/)
+
 ## Development server
 
 To start a local development server, run:
@@ -11,6 +15,17 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Inicio de sesión
+
+Para acceder a la aplicación, usa estas credenciales de prueba (FakeStore API):
+
+```json
+{
+  "username": "johnd",
+  "password": "m38rmF$"
+}
+```
 
 ## Code scaffolding
 
