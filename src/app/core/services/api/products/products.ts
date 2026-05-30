@@ -15,19 +15,20 @@ export interface Product {
   };
 }
 
+export type CreateProduct = Pick<Product, 'title' | 'price' | 'description' | 'category' | 'image'>;
+
 @Injectable({
   providedIn: 'root',
 })
-
-
-
 export class Products {
   private http = inject(HttpClient);
+  private readonly apiUrl = 'https://fakestoreapi.com/products';
 
   getProducts(): Observable<Product[]> {
-
-    return this.http.get<Product[]>('https://fakestoreapi.com/products');
+    return this.http.get<Product[]>(this.apiUrl);
   }
 
-
-} 
+  postProduct(product: CreateProduct): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product);
+  }
+}
