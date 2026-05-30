@@ -17,7 +17,7 @@ export class Login {
   private fb = inject(FormBuilder);
   private auth = inject(Auth);
   private router = inject(Router);
-
+ /**Controla el estado de carga de la aplicación */
   loading = signal(false);
   errorMessage = signal<string | null>(null);
 
