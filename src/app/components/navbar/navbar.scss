@@ -27,6 +27,7 @@
 }
 
 .navbar__menu {
+  flex: 1;
   width: 100%;
   margin-top: 2rem;
 }
@@ -78,4 +79,42 @@
 .navbar__menu-btn-icon {
   flex-shrink: 0;
   font-size: 1.25rem;
+}
+
+.navbar__footer {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.navbar__logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+}
+
+.navbar__logout-btn-icon {
+  font-size: 1.5rem;
 }

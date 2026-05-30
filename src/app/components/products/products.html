@@ -2,6 +2,10 @@
   <h1 class="products__title">Productos</h1>
 
   <div class="products__grid">
+    @if (products().length === 0) {
+      <p class="products__empty">Cargando productos…</p>
+    }
+
     @for (product of products(); track product.id) {
       <mat-card class="product-card" appearance="outlined">
         <div class="product-card__media">

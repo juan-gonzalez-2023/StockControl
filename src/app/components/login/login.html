@@ -1,0 +1,52 @@
+<section class="login">
+  <div class="login__card">
+    <header class="login__header">
+      <img
+        class="login__logo"
+        src="assets/images/logo.PNG"
+        alt="StockControl"
+        width="88"
+        height="88"
+      />
+      <h1 class="login__title">Bienvenido</h1>
+      <p class="login__subtitle">Gestiona tu inventario con claridad</p>
+    </header>
+
+    <form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      @if (errorMessage(); as message) {
+        <p class="login__error" role="alert">{{ message }}</p>
+      }
+
+      <mat-form-field appearance="outline" class="login__field">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username" autocomplete="username" />
+        @if (form.controls.username.touched && form.controls.username.hasError('required')) {
+          <mat-error>El usuario es obligatorio</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="login__field">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          autocomplete="current-password"
+        />
+        @if (form.controls.password.touched && form.controls.password.hasError('required')) {
+          <mat-error>La contraseña es obligatoria</mat-error>
+        }
+      </mat-form-field>
+
+      <button
+        class="login__submit"
+        mat-flat-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid || loading()"
+      >
+        {{ loading() ? 'Iniciando sesión…' : 'Iniciar sesión' }}
+      </button>
+    </form>
+  </div>
+</section>
