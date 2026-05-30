@@ -1,5 +1,27 @@
-<div class="home">
-  <app-navbar />
+<div class="home" [class.home--sidebar-open]="sidebarOpen()">
+  <header class="home__header">
+    <button
+      type="button"
+      class="home__menu-toggle"
+      aria-label="Abrir menú"
+      [attr.aria-expanded]="sidebarOpen()"
+      (click)="toggleSidebar()"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+    </button>
+    <h1 class="home__header-title">Productos</h1>
+  </header>
+
+  <div
+    class="home__backdrop"
+    aria-hidden="true"
+    (click)="closeSidebar()"
+  ></div>
+
+  <aside class="home__sidebar">
+    <app-navbar (closeSidebar)="closeSidebar()" />
+  </aside>
+
   <main class="home__main">
     <app-products />
   </main>
