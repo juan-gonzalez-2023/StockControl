@@ -34,6 +34,74 @@
 
 .navbar__menu-item {
   width: 100%;
+
+  & + & {
+    margin-top: 1rem;
+  }
+}
+
+.navbar__search-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-left: 0.125rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar__search-box {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.875rem;
+  z-index: 1;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: #6b7280;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.navbar__search-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.875rem 0.75rem 0.875rem 2.625rem;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #110356;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  outline: none;
+
+  &::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px #110356;
+  }
+
+  &::-webkit-search-cancel-button {
+    margin-right: 0.125rem;
+    cursor: pointer;
+  }
 }
 
 .navbar__menu-btn {

@@ -15,6 +15,11 @@ export class ProductsList {
   private platformId = inject(PLATFORM_ID);
 
   readonly products = signal<Product[]>([]);
+  readonly searchQuery = signal('');
+
+  setSearchQuery(query: string): void {
+    this.searchQuery.set(query);
+  }
 
   getProductsList() {
     return this.productsApi.getProducts().pipe(

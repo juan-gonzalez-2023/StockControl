@@ -1,5 +1,13 @@
 import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  computed,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Product } from '../../core/services/api/products/products';
@@ -23,6 +31,21 @@ export class Products implements OnInit {
   private platformId = inject(PLATFORM_ID);
 
   readonly products = this.productsList.products;
+  readonly filteredProducts = computed(() => {
+    const query = this.productsList.searchQuery().trim().toLowerCase();
+    const list = this.products();
+
+    if (!query) {
+      return list;
+    }
+
+    return list.filter(
+      (product) =>
+        product.title.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query) ||
+        String(product.id).includes(query),
+    );
+  });
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
